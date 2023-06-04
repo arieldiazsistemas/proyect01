@@ -48,12 +48,12 @@
 								<td>2011-04-25</td>
 								<td>$320,800</td>
                                 <td>
-                                    <a href="" title="update data" class="update">
+                                    <div class="update">
                                         <i class="fa fa-pencil" aria-hidden="true"></i>
-                                    </a>
-                                    <a href="" title="delete data" data-bs-toggle="modal" data-bs-target="#delete">
+                                    </div> - 
+                                    <div class="delete">
                                         <i class="fa fa-trash" aria-hidden="true"></i>
-                                    </a> 
+                                    </div> 
                                 </td>
 							</tr>
 							<tr>
@@ -96,10 +96,10 @@
 								<td>2012-03-29</td>
 								<td>$433,060</td>
                                 <td>
-                                    <a href="" title="update data">
+                                    <a href="" title="update data" class="update">
                                         <i class="fa fa-pencil" aria-hidden="true"></i>
                                     </a>
-                                    <a href="" title="delete data">
+                                    <a href="" title="delete data" class="delete">
                                         <i class="fa fa-trash" aria-hidden="true"></i>
                                     </a> 
                                 </td>
@@ -178,7 +178,7 @@
   </div>
 
   <!-- Modal Delete-->
-  <div class="modal fade" tabindex="-1" id="delete" aria-hidden="true">
+  <div class="modal fade" tabindex="-1" id="deleteForm" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -206,8 +206,20 @@
     $(document).ready(function () {
 	    $('#example').DataTable();
     });
-    //show the update table
-    $(".update")
+
+    //update the table
+    
+    //show the update table modal
+    $(".update").on("click",function(){
+        //var nameEmplo = $();
+        $("#dataEmployer").modal("show");
+    });
+
+    //show the delete element modal
+    $(".delete").on("click", function(){
+        $("#deleteForm").modal("show");
+    });
+    
 </script>
 
 </footer>
