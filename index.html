@@ -1,3 +1,8 @@
+<!-- 
+    Name: Ariel M. Diaz
+    Site: https://www.infrasoft.com.ar/
+    Licence: CC BY-NC-SA
+-->
 <html>
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -8,12 +13,16 @@
 	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
     <!-- Font Awesome-->
-    
+    <link href="./media/fontawesome/css/fontawesome.css" rel="stylesheet">
+    <link href="./media/fontawesome/css/brands.css" rel="stylesheet">
+    <link href="./media/fontawesome/css/solid.css" rel="stylesheet">
 </head>
 <body>
 <div class="container"> 
-    <div class="text-right">
-        <button type="button" class="btn btn-primary">New employer</button>
+    <div class="text-end">
+        <button type="button" class="btn btn-primary fw-bold" data-bs-toggle="modal" data-bs-target="#dataEmployer">
+            <i class="fa-solid fa-user-plus"></i> New employer
+        </button>
     </div>   
 <menu></menu>
 
@@ -38,7 +47,14 @@
 								<td>61</td>
 								<td>2011-04-25</td>
 								<td>$320,800</td>
-                                <td> <i class="fa fa-pencil" aria-hidden="true"></i> <i class="fa fa-trash" aria-hidden="true"></i></td>
+                                <td>
+                                    <a href="" title="update data" class="update">
+                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="" title="delete data" data-bs-toggle="modal" data-bs-target="#delete">
+                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                    </a> 
+                                </td>
 							</tr>
 							<tr>
 								<td>Garrett Winters</td>
@@ -47,7 +63,14 @@
 								<td>63</td>
 								<td>2011-07-25</td>
 								<td>$170,750</td>
-                                <td></td>
+                                <td>
+                                    <a href="" title="update data">
+                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="" title="delete data">
+                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                    </a> 
+                                </td>
 							</tr>
 							<tr>
 								<td>Ashton Cox</td>
@@ -56,7 +79,14 @@
 								<td>66</td>
 								<td>2009-01-12</td>
 								<td>$86,000</td>
-                                <td></td>
+                                <td>
+                                    <a href="" title="update data">
+                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="" title="delete data">
+                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                    </a> 
+                                </td>
 							</tr>
 							<tr>
 								<td>Cedric Kelly</td>
@@ -65,7 +95,14 @@
 								<td>22</td>
 								<td>2012-03-29</td>
 								<td>$433,060</td>
-                                <td></td>
+                                <td>
+                                    <a href="" title="update data">
+                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="" title="delete data">
+                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                    </a> 
+                                </td>
 							</tr>
         </tbody>
         <tfoot>
@@ -81,19 +118,98 @@
         </tfoot>
     </table>
 
+<!-- Modal  Add and Update -->
+<div class="modal fade" id="dataEmployer" tabindex="-1" aria-labelledby="dataEmployerLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="dataEmployerLabel">Data Employer</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Name</span>
+                <input type="text" class="form-control" placeholder="Name of employee" 
+                    aria-label="Name of employee" aria-describedby="data required"
+                    name="name" id="name" required>                
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Position</span>
+                <input type="text" class="form-control" placeholder="Employee position" 
+                    aria-label="Employee position" aria-describedby="data required"
+                    name="position" id="position" required>                
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Office</span>
+                <input type="text" class="form-control" placeholder="Office of employer" 
+                    aria-label="Office of employer" aria-describedby="data required"
+                    name="office" id="office" required>                
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Age</span>
+                <input type="number" class="form-control" placeholder="Age of employer" 
+                    aria-label="Age of employer" aria-describedby="data required"
+                    name="age" id="age" required>
+                <span class="input-group-text" id="basic-addon1">Start date</span>
+                <input type="date" class="form-control" placeholder="Start date of employer" 
+                        aria-label="Start date of employer" aria-describedby="data required"
+                        name="start" id="start" required>                
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Salary $</span>
+                <input type="number" class="form-control" placeholder="Salary of employer" 
+                    aria-label="Salary of employer" aria-describedby="data required"
+                    name="salary" id="salary" min="0"  step="0.01" required>                
+            </div>
+            <button type="submit" class="btn btn-primary fw-bold">
+                <i class="fa-regular fa-floppy-disk"></i>   Save
+            </button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary fw-bold" data-bs-dismiss="modal">
+            <i class="fa-sharp fa-solid fa-door-closed"></i> Close
+          </button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Delete-->
+  <div class="modal fade" tabindex="-1" id="delete" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Delete Employee</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Modal body text goes here.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
 </section>
 </div>
 <footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script type="text/javascript" class="init">
-	
+    // show the data table
+    $(document).ready(function () {
+	    $('#example').DataTable();
+    });
+    //show the update table
+    $(".update")
+</script>
 
-$(document).ready(function () {
-	$('#example').DataTable();
-});
-
-
-	</script>
 </footer>
 </body>
 </html>
