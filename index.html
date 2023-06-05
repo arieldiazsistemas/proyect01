@@ -16,6 +16,9 @@
     <link href="./media/fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="./media/fontawesome/css/brands.css" rel="stylesheet">
     <link href="./media/fontawesome/css/solid.css" rel="stylesheet">
+
+    <link rel="stylesheet" href= "./media/css/styles.css" type="text/css" media="screen" />
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
 </head>
 <body>
 <div class="container"> 
@@ -48,7 +51,7 @@
 								<td>2011-04-25</td>
 								<td>$320,800</td>
                                 <td>
-                                    <div class="update">
+                                    <div class="update" dataname="Tiger Nixon" dataposition = "System Architect">
                                         <i class="fa fa-pencil" aria-hidden="true"></i>
                                     </div> - 
                                     <div class="delete">
@@ -186,11 +189,11 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p>Modal body text goes here.</p>
+          <p>Do you confirm the delete on this employee?</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-danger">Delete</button>
         </div>
       </div>
     </div>
@@ -211,7 +214,11 @@
     
     //show the update table modal
     $(".update").on("click",function(){
-        //var nameEmplo = $();
+        var nameEmplo = $(this).attr("dataname"); 
+            dataposition = $(this).attr("dataposition")
+
+        $("#name").val(nameEmplo);
+        $("#position").val(dataposition);
         $("#dataEmployer").modal("show");
     });
 
@@ -221,7 +228,9 @@
     });
     
 </script>
-
+    <!-- Load React. -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
 </footer>
 </body>
 </html>
